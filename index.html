@@ -54,6 +54,21 @@
      console.log(hole);
      lastHole = hole;
   }
+
+  // open up the holes
+  function peep(){
+    const time = randomTime(200, 1000);
+    const hole = randomHole(holes);
+    hole.classList.add('up');
+    // remove hole
+    setTimeout(() => {
+      hole.classList.remove('up');
+      if(!timeUp) peep();
+    }, time);
+  }
+
+
+
 </script>
 </body>
 </html>
