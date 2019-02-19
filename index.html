@@ -39,7 +39,7 @@
   let lastHole;
 
   // set random time
-  function randTime(min, max){
+  function randomTime(min, max){
     return Math.round(Math.random() * (max - min) + min);
   }
 
@@ -51,24 +51,27 @@
       console.log(hole);
       return randomHole(holes);
      }
-     console.log(hole);
      lastHole = hole;
+     return hole;
   }
 
   // open up the holes
-  function peep(){
+  function peep() {
     const time = randomTime(200, 1000);
     const hole = randomHole(holes);
     hole.classList.add('up');
-    // remove hole
     setTimeout(() => {
       hole.classList.remove('up');
-      if(!timeUp) peep();
+      if (!timeUp) peep();
     }, time);
   }
 
 
-
+  function startGame(){
+    scoreBoard.textContent = 0;
+    timeUp = false;
+    peep();
+  }
 </script>
 </body>
 </html>
